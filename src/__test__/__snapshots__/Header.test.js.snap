@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders 1`] = `
+<DocumentFragment>
+  <header>
+    <h1
+      data-testid="headerTitle"
+    >
+      Musician Tracking App
+    </h1>
+    <div
+      class="title-subtitle"
+      data-testid="title-subtitle"
+    >
+      Keep track of your musical skills!
+    </div>
+  </header>
+</DocumentFragment>
+`;

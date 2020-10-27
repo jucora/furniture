@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders 1`] = `
+<DocumentFragment>
+  <div
+    class="newScoreForm"
+  >
+    <form>
+      <h1>
+        Your Skill:
+      </h1>
+      <h2>
+        Hours of study
+      </h2>
+      <input
+        name="score"
+        placeholder="Score"
+        required=""
+        type="text"
+        value=""
+      />
+      <button
+        type="submit"
+      >
+        Add Score
+      </button>
+      <br />
+      <h2>
+        Delete Skill
+      </h2>
+      <button
+        class="deleteSkill"
+        type="button"
+      >
+        Remove
+      </button>
+    </form>
+  </div>
+</DocumentFragment>
+`;

@@ -1,0 +1,86 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders 1`] = `
+<DocumentFragment>
+  <div
+    class="navBar"
+  >
+    <div
+      class="navBarLinkBox"
+    >
+      <a
+        class="nav-link"
+        href="/skillForm"
+      >
+        <div
+          style="width: 100%; text-align: center;"
+        >
+          <img
+            alt="Add Skill"
+            src="[object Object]"
+            style="width: 25%;"
+          />
+        </div>
+        Add Skill
+      </a>
+    </div>
+    <div
+      class="navBarLinkBox"
+    >
+      <a
+        class="nav-link"
+        href="/track"
+      >
+        <div
+          style="width: 100%; text-align: center;"
+        >
+          <img
+            alt="Track"
+            src="[object Object]"
+            style="width: 25%;"
+          />
+        </div>
+        Track.it
+      </a>
+    </div>
+    <div
+      class="navBarLinkBox"
+    >
+      <a
+        class="nav-link"
+        href="/progress"
+      >
+        <div
+          style="width: 100%; text-align: center;"
+        >
+          <img
+            alt="Progress"
+            src="progress.png"
+            style="width: 25%;"
+          />
+        </div>
+        Your Progress
+      </a>
+    </div>
+    <div
+      class="navBarLinkBox"
+    >
+      <a
+        class="nav-link"
+        href="/more"
+      >
+        <div
+          style="width: 100%; text-align: center;"
+        >
+          <img
+            alt="More Option"
+            src="[object Object]"
+            style="width: 25%;"
+          />
+        </div>
+        More
+      </a>
+    </div>
+  </div>
+</DocumentFragment>
+`;

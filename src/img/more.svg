@@ -1,0 +1,16 @@
+<svg width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+
+ <g>
+  <title>background</title>
+  <rect fill="none" id="canvas_background" height="602" width="802" y="-1" x="-1"/>
+ </g>
+ <g>
+  <title>Layer 1</title>
+  <circle r="2" id="XMLID_911_" fill="#F08A5D" cy="16" cx="16"/>
+  <circle r="2" id="XMLID_910_" fill="#B83B5E" cy="16" cx="6"/>
+  <circle r="2" id="XMLID_864_" fill="#B83B5E" cy="16" cx="26"/>
+  <circle stroke-width="2" stroke-miterlimit="10" stroke-linejoin="round" stroke-linecap="round" stroke="#ffffff" r="2" id="XMLID_846_" fill="#62b5e5" cy="16" cx="16"/>
+  <circle stroke-width="2" stroke-miterlimit="10" stroke-linejoin="round" stroke-linecap="round" stroke="#ffffff" r="2" id="XMLID_845_" fill="#62b5e5" cy="16" cx="6"/>
+  <circle stroke-width="2" stroke-miterlimit="10" stroke-linejoin="round" stroke-linecap="round" stroke="#ffffff" r="2" id="XMLID_844_" fill="#62b5e5" cy="16" cx="26"/>
+ </g>
+</svg>

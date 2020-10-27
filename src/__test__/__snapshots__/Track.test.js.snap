@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders 1`] = `
+<DocumentFragment>
+  <div
+    class="track"
+  >
+    <h2
+      class="trackTitle"
+    />
+    <div
+      class="totalScore"
+    >
+      <div>
+        <h2>
+          Total Hours
+        </h2>
+        <p>
+          0
+        </p>
+      </div>
+    </div>
+    <div
+      class="skillContainer"
+    />
+  </div>
+</DocumentFragment>
+`;
