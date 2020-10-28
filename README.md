@@ -1,10 +1,5 @@
-<h1 align="center">Musician Tracking App</h1>
+<h1 align="center">Furniture App</h1>
 
-<p align="center">
-  <img src ='src/img/preview.jpg' alt='Musician Tracking App image'>
-</p>
-
-# :arrow_right: [Live Demo](https://musician-tracking-app.web.app/)
 
 ## Author
 
@@ -26,20 +21,16 @@ For more information about the project requirements, please follow the next link
 
 1. Please clone the repository by running the next comand in your machine:
 
-<pre><code>git clone https://github.com/jucora/musician-tracking-app.git</code></pre>
+<pre><code>git clone https://github.com/jucora/furniture.git</code></pre>
 
-2. Next, run the next command to install all project dependencies:
+2. Next, run cd into the project and run the next command to install all project dependencies:
 
    For Yarn: <pre><code>yarn install</code></pre>
    For npm: <pre><code>npm install</code></pre>
 
 ## How to run the app locally
 
-1. Get into the folder of the project by running the next command:
-
-<pre><code>cd musician-tracking-app</code></pre>
-
-2. Start your local server by running the next command:
+1. Start your local server by running the next command:
 
    For Yarn: <pre><code>yarn start</code></pre>
    For npm: <pre><code>npm start</code></pre>
@@ -59,7 +50,7 @@ For more information about the project requirements, please follow the next link
 
 ## Report Issues
 
-Please feel free to make a contribution, report any issue, feature request or provide any feedback. Click [here](https://github.com/jucora/musician-tracking-app/issues)
+Please feel free to make a contribution, report any issue, feature request or provide any feedback. Click [here](https://github.com/jucora/furniture/issues)
 
 ## Support
 
