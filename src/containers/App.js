@@ -1,22 +1,21 @@
 /* eslint-disable react/jsx-props-no-spreading */
 /* eslint no-console: ["error", { allow: ["warn", "error"] }] */
 
-import React from "react";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
-import { connect } from "react-redux";
-import Proptypes from "prop-types";
-import Home from "../components/Home";
-import Track from "../components/Track";
-import { changeLoggedInStatus, setCurrentUser } from "../actions/index";
-import NavBar from "../components/NavBar";
-import EmployeeForm from "./EmployeeForm";
-import Detail from "../components/Detail";
-import Progress from "../components/Progress";
-import More from "./More";
-import Login from "../components/auth/Login";
-import Registration from "../components/auth/Registration";
-import Header from "../components/Header";
-import Api from "../utils/api";
+import React from 'react';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { connect } from 'react-redux';
+import Proptypes from 'prop-types';
+import Home from '../components/Home';
+import Employee from '../components/Employee';
+import Customer from '../components/Customer';
+import { changeLoggedInStatus, setCurrentUser } from '../actions/index';
+import NavBar from '../components/NavBar';
+import Profile from './Profile';
+import Login from '../components/auth/Login';
+import RegistrationUser from '../components/auth/RegistrationUser';
+import RegistrationCustomer from '../components/auth/RegistrationCustomer';
+import Header from '../components/Header';
+import Api from '../utils/api';
 
 class App extends React.Component {
   constructor() {
@@ -30,30 +29,30 @@ class App extends React.Component {
     const { changeLoggedInStatus, setCurrentUser, loggedInStatus } = this.props;
     Api.loggedIn()
       .then((response) => {
-        if (response.data.logged_in && loggedInStatus === "NOT_LOGGED_IN") {
-          changeLoggedInStatus("LOGGED_IN");
+        if (response.data.logged_in && loggedInStatus === 'NOT_LOGGED_IN') {
+          changeLoggedInStatus('LOGGED_IN');
           setCurrentUser(response.data.current_user);
-        } else if (!response.data.logged_in && loggedInStatus === "LOGGED_IN") {
-          changeLoggedInStatus("NOT_LOGGED_IN");
+        } else if (!response.data.logged_in && loggedInStatus === 'LOGGED_IN') {
+          changeLoggedInStatus('NOT_LOGGED_IN');
           setCurrentUser({});
         }
         this.setState({ contentLoaded: true });
       })
       .catch((error) => {
-        console.error("check login error", error);
+        console.error('check login error', error);
       });
   }
 
   handleLogin(data) {
     const { changeLoggedInStatus, setCurrentUser } = this.props;
-    changeLoggedInStatus("LOGGED_IN");
+    changeLoggedInStatus('LOGGED_IN');
     setCurrentUser(data.user);
   }
 
   handleLogout() {
-    localStorage.removeItem("token");
+    localStorage.removeItem('token');
     const { changeLoggedInStatus, setCurrentUser } = this.props;
-    changeLoggedInStatus("NOT_LOGGED_IN");
+    changeLoggedInStatus('NOT_LOGGED_IN');
     setCurrentUser({});
   }
 
@@ -66,7 +65,6 @@ class App extends React.Component {
           <Header />
           <Switch>
             <Route exact path="/login" component={Login} />
-            <Route exact path="/signup" component={Registration} />
             <Route
               exact
               path="/"
@@ -81,35 +79,49 @@ class App extends React.Component {
             />
             <Route
               exact
-              path="/employeeForm"
+              path="/registrationUser"
               render={(props) => (
-                <EmployeeForm {...props} loggedInStatus={loggedInStatus} />
+                <RegistrationUser {...props} loggedInStatus={loggedInStatus} />
               )}
             />
             <Route
               exact
-              path="/track"
+              path="/registrationCustomer"
               render={(props) => (
-                <Track user={user} {...props} loggedInStatus={loggedInStatus} />
+                <RegistrationCustomer
+                  {...props}
+                  loggedInStatus={loggedInStatus}
+                />
+              )}
+            />
+            <Route
+              exact
+              path="/customer"
+              render={(props) => (
+                <Customer
+                  user={user}
+                  {...props}
+                  loggedInStatus={loggedInStatus}
+                />
               )}
             />
 
             <Route
-              path="/detail/:id"
+              exact
+              path="/employee"
               render={(props) => (
-                <Detail {...props} loggedInStatus={loggedInStatus} />
+                <Employee
+                  user={user}
+                  {...props}
+                  loggedInStatus={loggedInStatus}
+                />
               )}
             />
+
             <Route
-              path="/progress"
+              path="/profile"
               render={(props) => (
-                <Progress {...props} loggedInStatus={loggedInStatus} />
-              )}
-            />
-            <Route
-              path="/more"
-              render={(props) => (
-                <More
+                <Profile
                   {...props}
                   handleLogin={this.handleLogin}
                   loggedInStatus={loggedInStatus}
@@ -118,7 +130,7 @@ class App extends React.Component {
               )}
             />
           </Switch>
-          {loggedInStatus === "LOGGED_IN" ? <NavBar /> : null}
+          {loggedInStatus === 'LOGGED_IN' ? <NavBar user={user} /> : null}
         </BrowserRouter>
       </div>
     ) : null;
@@ -133,9 +145,9 @@ App.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-  loggedInStatus: state.musicianReducer.loggedInStatus,
-  user: state.musicianReducer.user,
-  token: state.musicianReducer.token,
+  loggedInStatus: state.furnitureReducer.loggedInStatus,
+  user: state.furnitureReducer.user,
+  token: state.furnitureReducer.token,
 });
 
 const matchDispatchToProps = (dispatch) => ({

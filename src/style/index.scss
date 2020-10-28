@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Poiret+One&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Poiret+One&display=swap');
 
 * {
   margin: 0;
@@ -76,7 +76,7 @@
 }
 
 body {
-  font-family: "Poiret One", cursive;
+  font-family: 'Poiret One', cursive;
   margin: 0;
   width: 100%;
   height: auto;
@@ -95,8 +95,7 @@ body {
     color: red;
   }
 
-  .newScoreForm,
-  .newSkillForm {
+  .newForm {
     -webkit-animation: fadein 1s linear 0s;
     -moz-animation: fadein 1s linear 0s;
     -ms-animation: fadein 1s linear 0s;
@@ -136,7 +135,7 @@ body {
       }
     }
 
-    .deleteSkill {
+    .deleteEmployee {
       background-color: #d11a2a;
     }
   }
@@ -184,16 +183,12 @@ body {
     }
   }
 
-  .newSkillForm {
+  .newForm {
     margin: 6% auto 120px auto;
   }
 
-  .newScoreForm {
-    margin: 1% auto 150px auto;
-  }
-
   .home {
-    background: url("../img/muebles.jpg");
+    background: url('../img/muebles.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     color: #fff;
@@ -241,10 +236,10 @@ body {
       float: left;
       padding: 20px;
       text-align: center;
-      width: 25%;
+      width: 20%;
 
       &:hover {
-        background-color: #62b5e5 !important;
+        background-color: #a8a800 !important;
       }
 
       .nav-link {
@@ -254,7 +249,7 @@ body {
     }
   }
 
-  .skillContainer {
+  .employeeContainer {
     background-color: #ececec;
     display: flex;
     justify-content: space-around;
@@ -263,7 +258,7 @@ body {
     padding-bottom: 150px;
     width: 100%;
 
-    .skill {
+    .employee {
       background: #fff;
       box-sizing: border-box;
       float: left;

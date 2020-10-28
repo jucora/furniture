@@ -3,10 +3,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-const More = props => {
-  const {
-    handleLogout, loggedInStatus, history, user,
-  } = props;
+const Profile = (props) => {
+  const { handleLogout, loggedInStatus, history, user } = props;
   const handleLogoutClick = () => {
     handleLogout();
   };
@@ -21,7 +19,11 @@ const More = props => {
           </p>
           <p>
             Your ID:
-            {user.id}
+            {' ' + user.id}
+          </p>
+          <p>
+            Your Role:
+            {' ' + user.role}
           </p>
           <p>
             Registered since:
@@ -40,8 +42,7 @@ const More = props => {
             <p>Author: Julian Belmonte</p>
             <p>
               Thank you for your support in this project. I invite you to visit
-              my
-              {' '}
+              my{' '}
               <a
                 href="https://jucora.github.io/"
                 target="_blank"
@@ -59,15 +60,15 @@ const More = props => {
   );
 };
 
-More.propTypes = {
+Profile.propTypes = {
   handleLogout: PropTypes.func.isRequired,
   history: PropTypes.objectOf(PropTypes.any).isRequired,
   loggedInStatus: PropTypes.string.isRequired,
   user: PropTypes.objectOf(PropTypes.any).isRequired,
 };
 
-const mapStateToProps = state => ({
-  user: state.musicianReducer.user,
+const mapStateToProps = (state) => ({
+  user: state.furnitureReducer.user,
 });
 
-export default connect(mapStateToProps, null)(More);
+export default connect(mapStateToProps, null)(Profile);

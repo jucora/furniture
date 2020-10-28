@@ -1,70 +1,46 @@
-import axios from "axios";
+import axios from 'axios';
 
 const Api = (() => {
-  const addEmployee = (name) =>
+  const getUsers = () =>
     new Promise((resolve) => {
       axios
-        .post("http://localhost:3001/skills", {
-          newSkill: {
-            name,
-            token: JSON.parse(localStorage.getItem("token")),
-          },
-        })
-        .then((response) => {
-          resolve(response);
-        });
-    });
-  const getMeasures = () =>
-    new Promise((resolve) => {
-      axios
-        .get("http://localhost:3001/measures", {
+        .get('http://localhost:3001/registrations', {
           headers: {
-            Authorization: JSON.parse(localStorage.getItem("token")),
+            Authorization: JSON.parse(localStorage.getItem('token')),
           },
         })
         .then((response) => {
           resolve(response);
         });
     });
-  const getSkills = () =>
+  const getCustomers = () =>
     new Promise((resolve) => {
       axios
-        .get("http://localhost:3001/skills", {
+        .get('http://localhost:3001/customers', {
           headers: {
-            Authorization: JSON.parse(localStorage.getItem("token")),
+            Authorization: JSON.parse(localStorage.getItem('token')),
           },
         })
         .then((response) => {
           resolve(response);
         });
     });
-  const destroySkill = (skillId) =>
+  const destroyUser = (userId) =>
     new Promise((resolve) => {
       axios
-        .delete(`http://localhost:3001/skills/destroy/${skillId}`)
+        .delete(`http://localhost:3001/users/destroy/${userId}`)
         .then((response) => {
           resolve(response);
         });
     });
-  const addMeasure = (skill, score) =>
+
+  const newUser = (email, role, password, passwordConfirmation) =>
     new Promise((resolve) => {
       axios
-        .post("http://localhost:3001/measures", {
-          measure: {
-            id: skill.skill_id,
-            newScore: score,
-          },
-        })
-        .then((response) => {
-          resolve(response);
-        });
-    });
-  const registration = (email, password, passwordConfirmation) =>
-    new Promise((resolve) => {
-      axios
-        .post("http://localhost:3001/registrations", {
+        .post('http://localhost:3001/registrations', {
           user: {
             email,
+            role,
             password,
             password_confirmation: passwordConfirmation,
           },
@@ -73,10 +49,26 @@ const Api = (() => {
           resolve(response);
         });
     });
+
+  const newCustomer = (name, email, token) =>
+    new Promise((resolve) => {
+      axios
+        .post('http://localhost:3001/customers', {
+          newCustomer: {
+            name,
+            email,
+            token,
+          },
+        })
+        .then((response) => {
+          resolve(response);
+        });
+    });
+
   const newSession = (email, password) =>
     new Promise((resolve) => {
       axios
-        .post("http://localhost:3001/sessions", {
+        .post('http://localhost:3001/sessions', {
           user: {
             email,
             password,
@@ -89,9 +81,9 @@ const Api = (() => {
   const loggedIn = () =>
     new Promise((resolve) => {
       axios
-        .get("http://localhost:3001/logged_in", {
+        .get('http://localhost:3001/logged_in', {
           headers: {
-            Authorization: JSON.parse(localStorage.getItem("token")),
+            Authorization: JSON.parse(localStorage.getItem('token')),
           },
         })
         .then((response) => {
@@ -100,12 +92,11 @@ const Api = (() => {
     });
 
   return {
-    addEmployee,
-    getMeasures,
-    getSkills,
-    destroySkill,
-    addMeasure,
-    registration,
+    getUsers,
+    getCustomers,
+    destroyUser,
+    newUser,
+    newCustomer,
     newSession,
     loggedIn,
   };

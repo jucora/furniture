@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
-import musicianReducer from './musicianReducer';
+import furnitureReducer from './furnitureReducer';
 
 const rootReducer = combineReducers({
-  musicianReducer,
+  furnitureReducer,
 });
 
 export default rootReducer;

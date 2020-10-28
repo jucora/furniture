@@ -3,7 +3,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Login from './auth/Login';
-import Registration from './auth/Registration';
 
 export default class Home extends React.Component {
   constructor(props) {
@@ -14,7 +13,6 @@ export default class Home extends React.Component {
   handleSuccessfulAuth(data) {
     const { history, handleLogin } = this.props;
     handleLogin(data);
-    history.push('/track');
   }
 
   handleLogoutClick() {
@@ -28,11 +26,10 @@ export default class Home extends React.Component {
       <div className="home">
         <div>
           <Login handleSuccessfulAuth={this.handleSuccessfulAuth} />
-          <Registration handleSuccessfulAuth={this.handleSuccessfulAuth} />
         </div>
       </div>
     ) : (
-      (history.push('/track'), true)
+      (history.push('/profile'), true)
     );
   }
 }

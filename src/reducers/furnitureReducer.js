@@ -6,7 +6,7 @@ const initialState = {
   token: null,
 };
 
-const musicianReducer = (state = initialState, action) => {
+const furnitureReducer = (state = initialState, action) => {
   switch (action.type) {
     case SET_CURRENT_USER:
       return {
@@ -23,4 +23,4 @@ const musicianReducer = (state = initialState, action) => {
   }
 };
 
-export default musicianReducer;
+export default furnitureReducer;

@@ -4,7 +4,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Person from './Person';
 
-class Employee extends React.Component {
+class Customer extends React.Component {
   constructor(props) {
     super(props);
     this.state = { users: [] };
@@ -25,10 +25,10 @@ class Employee extends React.Component {
   }
 }
 
-Employee.propTypes = {
+Customer.propTypes = {
   user: PropTypes.objectOf(PropTypes.any).isRequired,
   loggedInStatus: PropTypes.string.isRequired,
   history: PropTypes.objectOf(PropTypes.any).isRequired,
 };
 
-export default Employee;
+export default Customer;

@@ -1,15 +1,14 @@
 /* eslint no-console: ["error", { allow: ["warn", "error"] }] */
-import React from "react";
-import PropType from "prop-types";
-import Api from "../../utils/api";
+import React from 'react';
+import PropType from 'prop-types';
+import Api from '../../utils/api';
 
 export default class Registration extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      email: "",
-      password: "",
-      passwordConfirmation: "",
+      name: '',
+      email: '',
       errors: [],
     };
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -18,21 +17,21 @@ export default class Registration extends React.Component {
 
   handleSubmit(e) {
     const { handleSuccessfulAuth } = this.props;
-    const { email, password, passwordConfirmation } = this.state;
-
+    const { name, email } = this.state;
+    const token = localStorage.getItem('token');
     e.preventDefault();
-    Api.registration(email, password, passwordConfirmation)
+    Api.newCustomer(name, email, JSON.parse(token))
       .then((response) => {
         if (response.data.errors) {
           this.setState({ errors: response.data.errors });
         }
         if (response.data.user) {
-          localStorage.setItem("token", JSON.stringify(response.data.jwt));
+          localStorage.setItem('token', JSON.stringify(response.data.jwt));
           handleSuccessfulAuth(response.data);
         }
       })
       .catch((error) => {
-        console.error("Registration error", error);
+        console.error('Registration error', error);
       });
   }
 
@@ -41,16 +40,25 @@ export default class Registration extends React.Component {
   }
 
   render() {
-    const { email, password, passwordConfirmation, errors } = this.state;
+    const { name, email, errors } = this.state;
     return (
-      <div className="form">
+      <div className="newForm">
         <form onSubmit={this.handleSubmit}>
-          <h2>Registrar cliente</h2>
+          <h2>Add Customer</h2>
           {errors.map((error) => (
             <h2 key={error} className="error">
               {error}
             </h2>
           ))}
+
+          <input
+            type="text"
+            name="name"
+            placeholder="Customer Name"
+            value={name}
+            onChange={this.handleChange}
+            required
+          />
 
           <input
             type="email"
@@ -61,25 +69,7 @@ export default class Registration extends React.Component {
             required
           />
 
-          <input
-            type="password"
-            name="password"
-            placeholder="Password"
-            value={password}
-            onChange={this.handleChange}
-            required
-          />
-
-          <input
-            type="password"
-            name="passwordConfirmation"
-            placeholder="Password confirmation"
-            value={passwordConfirmation}
-            onChange={this.handleChange}
-            required
-          />
-
-          <button type="submit">Register</button>
+          <button type="submit">Add Customer</button>
         </form>
       </div>
     );
@@ -87,5 +77,5 @@ export default class Registration extends React.Component {
 }
 
 Registration.propTypes = {
-  handleSuccessfulAuth: PropType.func.isRequired,
+  handleSuccessfulAuth: PropType.func,
 };
