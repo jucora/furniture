@@ -9,14 +9,6 @@
 - Twitter: [@Julian Belmonte](https://www.twitter.com/JulianBelmonte)
 - Linkedin: [Julian Belmonte](https://www.linkedin.com/in/julianbel)
 
-## :pencil: Main Description
-
-This is the final project of the React module. It consists of the creation of a monitoring application on a subject of free choice. In this case, I created an application to follow the musicians' study routines.
-
-This application is connected to an API developed in Ruby on Rails. To access the API, click here
-
-For more information about the project requirements, please follow the next link: [React Final Capstone Project](https://www.notion.so/Final-Capstone-Project-Tracking-App-22e454da738c46efaf17721826841772)
-
 ## How to install the App
 
 1. Please clone the repository by running the next comand in your machine:
